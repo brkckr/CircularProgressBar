@@ -212,11 +212,6 @@ public class CircularProgressBar extends View
 
     public void setProgressWithAnimation(float progress, int duration, StateEnum state)
     {
-      /*  if (mState != state)
-        {
-            setState(StateEnum.Clockwise);
-        }*/
-
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(this, "progress", progress);
         objectAnimator.setDuration(duration);
         objectAnimator.setInterpolator(new DecelerateInterpolator());
