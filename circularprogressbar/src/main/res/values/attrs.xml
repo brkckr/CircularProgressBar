@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularProgressBar">
+        <attr name="cpbState" format="enum" >
+            <enum name="clockwise" value="0"/>
+            <enum name="counterClockwise" value="1"/>
+        </attr>
+        <attr name="cpbProgressValue" format="integer" />
+        <attr name="cpbProgressColor" format="color" />
+        <attr name="cpbProgressWidth" format="dimension" />
+        <attr name="cpbBackgroundColor" format="color" />
+        <attr name="cpbBackgroundWidth" format="dimension" />
+    </declare-styleable>
+</resources>
