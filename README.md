@@ -36,9 +36,7 @@ dependencies {
 ```
 
 ## Attributes
-By default, release-it is interactive and allows you to confirm each task before execution:
 
-On a Continuous Integration (CI) environment, or by using the `-n` option, this is fully automated. No prompts are shown and the configured tasks will be executed. This is demonstrated in the first animation above. An overview of the default tasks:
   <attr name="cpbState" format="enum" >
             <enum name="clockwise" value="0"/>
             <enum name="counterClockwise" value="1"/>
