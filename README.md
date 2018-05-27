@@ -29,25 +29,34 @@ Add it in your root build.gradle at the end of repositories:
 
 * Step 2. Add the dependency
 
-	dependencies{
-	        compile 'com.github.brkckr:CircularProgressBar:1.0.0'
-	}
-
+```
+dependencies {
+   implementation 'com.github.brkckr:CircularProgressBar:1.0.1'
+}
+```
 
 ## Attributes
 By default, release-it is interactive and allows you to confirm each task before execution:
 
 On a Continuous Integration (CI) environment, or by using the `-n` option, this is fully automated. No prompts are shown and the configured tasks will be executed. This is demonstrated in the first animation above. An overview of the default tasks:
+  <attr name="cpbState" format="enum" >
+            <enum name="clockwise" value="0"/>
+            <enum name="counterClockwise" value="1"/>
+        </attr>
+        <attr name="cpbProgressValue" format="integer" />
+        <attr name="cpbProgressColor" format="color" />
+        <attr name="cpbProgressWidth" format="dimension" />
+        <attr name="cpbBackgroundColor" format="color" />
+        <attr name="cpbBackgroundWidth" format="dimension" />
 
 Name | Description | Type | Default | Range
 :--|:--|:-:|:--|:-:
-Ready (confirm version) | N/A | N/A | - | `Y`
-Show staged files | N/A | N/A | `prompt.src.status` | `N`
-Git commit | `src.commit` | `true` | `prompt.src.commit` | `Y`
-Git push | `src.push` | `true` | `prompt.src.push` | `Y`
-Git tag | `src.tag` | `true` | `prompt.src.tag` | `Y`
-GitHub release | `github.release` | `false` | `prompt.src.release` | `Y`
-npm publish | `npm.publish` | `true` | `prompt.src.publish` | `Y`
+cpbState | - | - | - | -
+cpbProgressValue | Progress's Value | integer | 0 | 0 to 100
+cpbProgressColor | Color of the Progress Bar | Color | - | -
+cpbProgressWidth | - | - | - | -
+cpbBackgroundColor | - | - | - | -
+cpbBackgroundWidth | - | - | - | -
 
 ## License
 
