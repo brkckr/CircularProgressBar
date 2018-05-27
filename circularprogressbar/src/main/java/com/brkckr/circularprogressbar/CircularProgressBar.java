@@ -16,19 +16,13 @@ public class CircularProgressBar extends View
 {
     private static final int START_ANGLE = 270;
 
-    /**
-     *
-     */
-    public enum StateEnum
+    public enum State
     {
-        Clockwise, CounterClockwise
+        CLOCKWISE, COUNTERCLOCKWISE
     }
 
-    private StateEnum mState = StateEnum.Clockwise;
+    private State progressState = State.CLOCKWISE;
 
-    /**
-     *
-     */
     private float progressValue = 0;
 
     private float progressWidth;
@@ -50,20 +44,19 @@ public class CircularProgressBar extends View
     private void init(Context context, AttributeSet attrs)
     {
         TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CircularProgressBar, 0, 0);
-        int state = typedArray.getInt(R.styleable.CircularProgressBar_cpbState, 0);
 
+        int state = typedArray.getInt(R.styleable.CircularProgressBar_cpbState, 0);
         if (state == 0)
         {
-            mState = StateEnum.Clockwise;
-        }
-        else
+            progressState = State.CLOCKWISE;
+        } else
         {
-            mState = StateEnum.CounterClockwise;
+            progressState = State.COUNTERCLOCKWISE;
         }
-        progressValue = typedArray.getFloat(R.styleable.CircularProgressBar_cpbProgressValue, progressValue);
 
-        progressWidth = typedArray.getDimension(R.styleable.CircularProgressBar_cpbProgressWidth, getResources().getDimension(R.dimen.default_cpb_progress_width));
-        backgroundWidth = typedArray.getDimension(R.styleable.CircularProgressBar_cpbBackgroundWidth, getResources().getDimension(R.dimen.default_cpb_background_width));
+        progressValue = typedArray.getFloat(R.styleable.CircularProgressBar_cpbProgressValue, progressValue);
+        progressWidth = typedArray.getDimension(R.styleable.CircularProgressBar_cpbProgressWidth, getResources().getDimension(R.dimen.progress_width));
+        backgroundWidth = typedArray.getDimension(R.styleable.CircularProgressBar_cpbBackgroundWidth, getResources().getDimension(R.dimen.background_width));
         progressColor = typedArray.getInt(R.styleable.CircularProgressBar_cpbProgressColor, Color.BLACK);
         backgroundColor = typedArray.getInt(R.styleable.CircularProgressBar_cpbBackgroundColor, Color.GRAY);
 
@@ -88,12 +81,11 @@ public class CircularProgressBar extends View
         super.onDraw(canvas);
         canvas.drawOval(rectF, backgrounPaint);
 
-        if (mState == StateEnum.Clockwise)
+        if (progressState == State.CLOCKWISE)
         {
             float angle = 360 * progressValue / 100;
             canvas.drawArc(rectF, START_ANGLE, angle, false, progressPaint);
-        }
-        else
+        } else
         {
             float angle = 360 * progressValue / 100 - 360;
             canvas.drawArc(rectF, START_ANGLE, angle, false, progressPaint);
@@ -116,15 +108,15 @@ public class CircularProgressBar extends View
      *
      * @return state
      */
-    public StateEnum getState()
+    public State getState()
     {
-        return mState;
+        return progressState;
     }
 
 
-    public void setState(StateEnum state)
+    public void setState(State state)
     {
-        mState = state;
+        progressState = state;
 
         requestLayout();
         invalidate();
@@ -184,35 +176,37 @@ public class CircularProgressBar extends View
         requestLayout();
     }
 
-    public float getProgress()
+    public float getProgressValue()
     {
         return progressValue;
     }
 
-    public void setProgress(float progress)
+    public void setProgressValue(float progress)
     {
         progressValue = (progress <= 100) ? progress : 100;
         invalidate();
     }
 
-    public void setProgressWithAnimation(float progress)
+    public void setProgressValueWithAnimation(float progressValue)
     {
-        setProgressWithAnimation(progress, StateEnum.Clockwise);
+        setProgressValueWithAnimation(progressState, progressValue, 1500);
     }
 
-    public void setProgressWithAnimation(float progress, StateEnum state)
+    public void setProgressValueWithAnimation(float progressValue, int duration)
     {
-        setProgressWithAnimation(progress, 1500);
+        setProgressValueWithAnimation(progressState, progressValue, duration);
     }
 
-    public void setProgressWithAnimation(float progress, int duration)
+    public void setProgressValueWithAnimation(State state, float progressValue)
     {
-        setProgressWithAnimation(progress, duration, StateEnum.Clockwise);
+        setProgressValueWithAnimation(state, progressValue, 1500);
     }
 
-    public void setProgressWithAnimation(float progress, int duration, StateEnum state)
+    public void setProgressValueWithAnimation(State state, float progressValue, int duration)
     {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(this, "progress", progress);
+        progressState = state;
+
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(this, "progressValue", progressValue);
         objectAnimator.setDuration(duration);
         objectAnimator.setInterpolator(new DecelerateInterpolator());
         objectAnimator.start();

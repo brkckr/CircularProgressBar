@@ -14,10 +14,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity
 {
-    private CircularProgressBar circularProgressBar = null;
-    private Button btnDecrease = null;
-    private Button btnIncrease = null;
-    private Button btnRandom = null;
+    CircularProgressBar circularProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,11 +22,12 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnDecrease = findViewById(R.id.btnDecrease);
-        btnIncrease = findViewById(R.id.btnIncrease);
-        btnRandom = findViewById(R.id.btnRandom);
+        circularProgressBar = findViewById(R.id.circularProgressBar);
+        Button btnDecrease = findViewById(R.id.btnDecrease);
+        Button btnIncrease = findViewById(R.id.btnIncrease);
+        Button btnRandom = findViewById(R.id.btnRandom);
 
-        ((SeekBar) findViewById(R.id.seekBar1)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
+        ((SeekBar) findViewById(R.id.seekBarBackground)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
         {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        ((SeekBar) findViewById(R.id.seekBar2)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
+        ((SeekBar) findViewById(R.id.seekBarProgress)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
         {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
@@ -71,26 +69,26 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        ((RadioButton) findViewById(R.id.radioButton1)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        ((RadioButton) findViewById(R.id.radioClockwise)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
                 if (isChecked)
                 {
-                    circularProgressBar.setState(CircularProgressBar.StateEnum.Clockwise);
+                    circularProgressBar.setState(CircularProgressBar.State.CLOCKWISE);
                 }
             }
         });
 
-        ((RadioButton) findViewById(R.id.radioButton2)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        ((RadioButton) findViewById(R.id.radioCounter)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
             {
                 if (isChecked)
                 {
-                    circularProgressBar.setState(CircularProgressBar.StateEnum.CounterClockwise);
+                    circularProgressBar.setState(CircularProgressBar.State.COUNTERCLOCKWISE);
                 }
             }
         });
@@ -100,7 +98,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                circularProgressBar.setProgressWithAnimation(circularProgressBar.getProgress()-5, 200);
+                circularProgressBar.setProgressValueWithAnimation(circularProgressBar.getProgressValue()-5, 200);
             }
         });
 
@@ -109,7 +107,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                circularProgressBar.setProgressWithAnimation(circularProgressBar.getProgress()+5, 300);
+                circularProgressBar.setProgressValueWithAnimation(circularProgressBar.getProgressValue()+5, 300);
             }
         });
 
@@ -121,13 +119,11 @@ public class MainActivity extends AppCompatActivity
                 int min = 0;
                 int max = 100;
 
-                Random r = new Random();
-                int abc = r.nextInt(max - min + 1) + min;
+                Random random = new Random();
+                int progressValue = random.nextInt(max - min + 1) + min;
 
-                circularProgressBar.setProgressWithAnimation((float) abc);
+                circularProgressBar.setProgressValueWithAnimation((float) progressValue);
             }
         });
-
-        circularProgressBar = findViewById(R.id.circularProgressBar);
     }
 }

@@ -1,91 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:padding="10dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:padding="10dp">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:weightSum="3"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="3">
 
         <Button
             android:id="@+id/btnIncrease"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Increase" />
+            android:layout_weight="1"
+            android:text="@string/increase"/>
 
         <Button
             android:id="@+id/btnDecrease"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Decrease" />
+            android:layout_weight="1"
+            android:text="@string/decrease"/>
 
         <Button
             android:id="@+id/btnRandom"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="RANDOM" />
+            android:layout_weight="1"
+            android:text="@string/random"/>
 
     </LinearLayout>
 
     <SeekBar
-        android:id="@+id/seekBar1"
+        android:id="@+id/seekBarBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"/>
 
     <SeekBar
-        android:id="@+id/seekBar2"
+        android:id="@+id/seekBarProgress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/seekBar1"
-        android:layout_margin="10dp" />
+        android:layout_below="@+id/seekBarBackground"
+        android:layout_margin="10dp"/>
 
     <RadioGroup
         android:id="@+id/radio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/seekBar2"
+        android:layout_below="@+id/seekBarProgress"
         android:layout_margin="10dp">
 
         <RadioButton
-            android:id="@+id/radioButton1"
+            android:id="@+id/radioClockwise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:checked="true"
-            android:text="Clockwise" />
+            android:text="@string/clockwise"/>
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/radioCounter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Counter Clockwise" />
+            android:text="@string/counter_clockwise"/>
 
     </RadioGroup>
 
     <com.brkckr.circularprogressbar.CircularProgressBar
         android:id="@+id/circularProgressBar"
+        app:cpbBackgroundColor="#F1992D"
+        app:cpbBackgroundWidth="@dimen/background_width"
+        app:cpbProgressColor="#9F3238"
+        app:cpbProgressValue="15"
+        app:cpbProgressWidth="@dimen/progress_width"
+        app:cpbState="clockwise"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_below="@+id/radio"
-        android:layout_centerHorizontal="true"
-        app:cpbBackgroundColor="#F1992D"
-        app:cpbBackgroundWidth="10dp"
-        app:cpbProgressColor="#9F3238"
-        app:cpbProgressValue="10"
-        app:cpbProgressWidth="@dimen/default_cpb_progress_width"
-        app:cpbState="counterClockwise" />
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CircularProgressBar</string>
+    <string name="increase">Increase</string>
+    <string name="decrease">Decrease</string>
+    <string name="random">Random</string>
+    <string name="clockwise">Clockwise</string>
+    <string name="counter_clockwise">Counter Clockwise</string>
 </resources>
