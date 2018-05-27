@@ -103,16 +103,10 @@ public class CircularProgressBar extends View
         rectF.set(0 + highStroke / 2, 0 + highStroke / 2, min - highStroke / 2, min - highStroke / 2);
     }
 
-    /**
-     * Gets ProgressBar's state
-     *
-     * @return state
-     */
     public State getState()
     {
         return progressState;
     }
-
 
     public void setState(State state)
     {
