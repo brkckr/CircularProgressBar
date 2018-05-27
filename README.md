@@ -5,12 +5,8 @@
 
 <h4 align="center">Another circular ProgressBar attempt :bowtie:</h4>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/img/markdownify.gif)
-
-## Summary
-
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
+![screenshot](https://media.giphy.com/media/RLV1w1thh1Qzuic08s/giphy.gif)
+![screenshot](https://media.giphy.com/media/9xk58iEZU0T9sic4Wk/giphy.gif)
 
 ## How To Use
 
@@ -29,25 +25,32 @@ Add it in your root build.gradle at the end of repositories:
 
 * Step 2. Add the dependency
 
-	dependencies{
-	        compile 'com.github.brkckr:CircularProgressBar:1.0.0'
-	}
-
+```
+dependencies {
+   implementation 'com.github.brkckr:CircularProgressBar:1.0.1'
+}
+```
 
 ## Attributes
-By default, release-it is interactive and allows you to confirm each task before execution:
 
-On a Continuous Integration (CI) environment, or by using the `-n` option, this is fully automated. No prompts are shown and the configured tasks will be executed. This is demonstrated in the first animation above. An overview of the default tasks:
+  <attr name="cpbState" format="enum" >
+            <enum name="clockwise" value="0"/>
+            <enum name="counterClockwise" value="1"/>
+        </attr>
+        <attr name="cpbProgressValue" format="integer" />
+        <attr name="cpbProgressColor" format="color" />
+        <attr name="cpbProgressWidth" format="dimension" />
+        <attr name="cpbBackgroundColor" format="color" />
+        <attr name="cpbBackgroundWidth" format="dimension" />
 
 Name | Description | Type | Default | Range
 :--|:--|:-:|:--|:-:
-Ready (confirm version) | N/A | N/A | - | `Y`
-Show staged files | N/A | N/A | `prompt.src.status` | `N`
-Git commit | `src.commit` | `true` | `prompt.src.commit` | `Y`
-Git push | `src.push` | `true` | `prompt.src.push` | `Y`
-Git tag | `src.tag` | `true` | `prompt.src.tag` | `Y`
-GitHub release | `github.release` | `false` | `prompt.src.release` | `Y`
-npm publish | `npm.publish` | `true` | `prompt.src.publish` | `Y`
+cpbState | State of the Progress Bar | Enum | clockwise | clockwise or counterclockwise
+cpbProgressValue | Progress's Value | integer | 0 | 0 to 100
+cpbProgressColor | Color of the Progress Bar | Color | Color.BLACK | -
+cpbProgressWidth | Width of the Progress Bar | Dimension | 8dp | -
+cpbBackgroundColor | Bg Color of the Progress Bar | Color | Color.GRAY | -
+cpbBackgroundWidth | Width of the Background | Dimension | 4dp | -
 
 ## License
 
