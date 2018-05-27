@@ -51,12 +51,12 @@ On a Continuous Integration (CI) environment, or by using the `-n` option, this 
 
 Name | Description | Type | Default | Range
 :--|:--|:-:|:--|:-:
-cpbState | - | - | - | -
+cpbState | State of the Progress Bar | Enum | clockwise | clockwise or counterclockwise
 cpbProgressValue | Progress's Value | integer | 0 | 0 to 100
-cpbProgressColor | Color of the Progress Bar | Color | - | -
-cpbProgressWidth | - | - | - | -
-cpbBackgroundColor | - | - | - | -
-cpbBackgroundWidth | - | - | - | -
+cpbProgressColor | Color of the Progress Bar | Color | Color.BLACK | -
+cpbProgressWidth | Width of the Progress Bar | Dimension | 8dp | -
+cpbBackgroundColor | Bg Color of the Progress Bar | Color | Color.GRAY | -
+cpbBackgroundWidth | Width of the Background | Dimension | 4dp | -
 
 ## License
 
