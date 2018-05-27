@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.brkckr'
 
 android {
     compileSdkVersion 27
-
-
-
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 27
