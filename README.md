@@ -5,8 +5,7 @@
 
 <h4 align="center">Another circular ProgressBar attempt :bowtie:</h4>
 
-![screenshot](https://media.giphy.com/media/kiXrZMOlSBM9GGP1Sv/giphy.gif)
-![screenshot](https://media.giphy.com/media/2xPJBmvMDLYRmsdt80/giphy.gif)
+![screenshot](https://media.giphy.com/media/kiXrZMOlSBM9GGP1Sv/giphy.gif)![screenshot](https://media.giphy.com/media/2xPJBmvMDLYRmsdt80/giphy.gif)
 
 ## How To Use
 
