@@ -8,7 +8,7 @@
 ![screenshot](https://media.giphy.com/media/RLV1w1thh1Qzuic08s/giphy.gif)
 ![screenshot](https://media.giphy.com/media/9xk58iEZU0T9sic4Wk/giphy.gif)
 
-## How To Use
+## How To Install
 
 To get a Git project into your build:
 
@@ -29,6 +29,20 @@ Add it in your root build.gradle at the end of repositories:
 dependencies {
    implementation 'com.github.brkckr:CircularProgressBar:1.0.1'
 }
+```
+## How To Use
+
+```
+<com.brkckr.circularprogressbar.CircularProgressBar
+        android:id="@+id/circularProgressBar"
+        app:cpbBackgroundColor="#F1992D"
+        app:cpbBackgroundWidth="@dimen/background_width"
+        app:cpbProgressColor="#9F3238"
+        app:cpbProgressValue="15"
+        app:cpbProgressWidth="@dimen/progress_width"
+        app:cpbState="clockwise"
+        android:layout_width="128dp"
+        android:layout_height="128dp"/>
 ```
 
 ## Attributes
